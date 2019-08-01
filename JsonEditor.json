@@ -1,0 +1,673 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "office appointments",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "createTask",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "SUBJECT",
+                            "samples": [
+                                "subject is {subject}",
+                                "{subject}"
+                            ]
+                        },
+                        {
+                            "name": "priority",
+                            "type": "PRIORITY",
+                            "samples": [
+                                "it is {priority}",
+                                "{priority}",
+                                "Prioroty is {priority}"
+                            ]
+                        },
+                        {
+                            "name": "startDate",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{startDate}"
+                            ]
+                        },
+                        {
+                            "name": "dueDate",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{dueDate}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "add task",
+                        "create task with following information  {subject} {startDate} {dueDate}  {priority}",
+                        "create task"
+                    ]
+                },
+                {
+                    "name": "createAppointments",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "SUBJECT",
+                            "samples": [
+                                "subject is {subject}",
+                                "{subject}"
+                            ]
+                        },
+                        {
+                            "name": "location",
+                            "type": "AMAZON.City",
+                            "samples": [
+                                "it is {location}",
+                                "{location}",
+                                "Location is {location}"
+                            ]
+                        },
+                        {
+                            "name": "startTime",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "{startTime}"
+                            ]
+                        },
+                        {
+                            "name": "endTime",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "{endTime}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "schedule an appointment",
+                        "add an appointment",
+                        "create an appointment"
+                    ]
+                },
+                {
+                    "name": "createMeetings",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "SUBJECT",
+                            "samples": [
+                                "subject is {subject}",
+                                "{subject}"
+                            ]
+                        },
+                        {
+                            "name": "location",
+                            "type": "AMAZON.City",
+                            "samples": [
+                                "it is {location}",
+                                "{location}",
+                                "Location is {location}"
+                            ]
+                        },
+                        {
+                            "name": "startTime",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "{startTime}"
+                            ]
+                        },
+                        {
+                            "name": "endTime",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "{endTime}"
+                            ]
+                        },
+                        {
+                            "name": "receipients",
+                            "type": "RECEIPIENTS",
+                            "samples": [
+                                "{receipients}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "meeting",
+                        "schedule a meeting",
+                        "add a meeting information",
+                        "create a meeting"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "SUBJECT",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "tomorrow"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "PRIORITY",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "High"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Normal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Low"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "RECEIPIENTS",
+                    "values": [
+                        {
+                            "id": "Karthick",
+                            "name": {
+                                "value": "karthick.rajendran3@gmail.com",
+                                "synonyms": [
+                                    "karthick.rajendran3@gmail.com",
+                                    "Karthick"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "Prabhu",
+                            "name": {
+                                "value": "prabhu.manivannan@gmail.com",
+                                "synonyms": [
+                                    "prabhu.manivannan@gmail.com",
+                                    "Prabhu"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "mani",
+                            "name": {
+                                "value": "mani2@gmail.com",
+                                "synonyms": [
+                                    "mani2@gmail.com",
+                                    "mani"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "varma",
+                            "name": {
+                                "value": "venkatvarma@hotmail.com",
+                                "synonyms": [
+                                    "venkatvarma@hotmail.com",
+                                    "varma"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "createTask",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1417951341155"
+                    },
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "SUBJECT",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.591893048958.1030519873810",
+                                "elicitation": "Elicit.Slot.107553874343.1423336326669"
+                            }
+                        },
+                        {
+                            "name": "priority",
+                            "type": "PRIORITY",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.107553874343.851879503373"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.1356362034680.961366149055.778590473571"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "startDate",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1018276163935.1486429087171"
+                            }
+                        },
+                        {
+                            "name": "dueDate",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.691543183320.199320008628"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "createAppointments",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1191849510748"
+                    },
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "SUBJECT",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1115205010683.1243041488339",
+                                "elicitation": "Elicit.Slot.1191849510748.1314843598726"
+                            }
+                        },
+                        {
+                            "name": "location",
+                            "type": "AMAZON.City",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1191849510748.671435310830",
+                                "elicitation": "Elicit.Slot.1191849510748.671435310830"
+                            }
+                        },
+                        {
+                            "name": "startTime",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1191849510748.421437950505"
+                            }
+                        },
+                        {
+                            "name": "endTime",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1146429148344.1029969575542"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "createMeetings",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1222297150405"
+                    },
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "SUBJECT",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1222297150405.105146618238",
+                                "elicitation": "Elicit.Slot.1222297150405.105146618238"
+                            }
+                        },
+                        {
+                            "name": "location",
+                            "type": "AMAZON.City",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1222297150405.754680584468",
+                                "elicitation": "Elicit.Slot.1222297150405.754680584468"
+                            }
+                        },
+                        {
+                            "name": "startTime",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.894851416787.27565540166"
+                            }
+                        },
+                        {
+                            "name": "endTime",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.894851416787.1338889434578"
+                            }
+                        },
+                        {
+                            "name": "receipients",
+                            "type": "RECEIPIENTS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1222297150405.1093175085532"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.1292327255306.1439903696764.300173863813"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.107553874343.1423336326669",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide the subject please"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.107553874343.1423336326669",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Subject is mandatory"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.107553874343.410330274864",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Start Date is Mandatory, please provide"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.107553874343.647026237340",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "End Date is mandatory, please provide"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.107553874343.851879503373",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide the task priority please"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.107553874343",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "please provide all the information"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.40038813424.1226163243334",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide the task priority please"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1018276163935.1486429087171",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide the start date please"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.691543183320.199320008628",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide due date please"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1417951341155",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Thank you for providing the information.Please confirm do you want to create task?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.591893048958.1030519873810",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Can i proceed with this subject?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1356362034680.961366149055.778590473571",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Acceptable values for priority is low, high, normal. Please provide the valid values"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1191849510748",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Thank you for providing the information. Please confirm do you want to schedule the appointment?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1191849510748.1314843598726",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide the subject please"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1191849510748.1314843598726",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Can i proceed with this subject?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1191849510748.671435310830",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Can i proceed with this {location} location?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1191849510748.671435310830",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please Provide the appointment location"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1191849510748.421437950505",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide the start time please"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1222297150405.105146618238",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide the subject please"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1222297150405.754680584468",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please Provide the meeting location"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1222297150405.754680584468",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Can i proceed with this {location} location?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1222297150405.105146618238",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Can i proceed with this subject?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1222297150405.1093175085532",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Provide the receipients please"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1222297150405",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Thank you for providing the information. Please confirm do you want to schedule the meeting?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1146429148344.1029969575542",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "provide the end time please"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.894851416787.1338889434578",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "provide the end time please"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.894851416787.27565540166",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "provide the start time please"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1115205010683.1243041488339",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "can i proceed with the subject?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1292327255306.1439903696764.300173863813",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please provide the valid names like karthick, mani, prabhu, varma"
+                    }
+                ]
+            }
+        ]
+    }
+}
